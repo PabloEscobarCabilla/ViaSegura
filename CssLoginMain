@@ -1,1 +1,140 @@
+:root{
+  --bg: #0f172a;         /* fondo oscuro suave */
+  --card: #0b1226;       /* tarjeta */
+  --text: #e5e7eb;       /* texto */
+  --muted: #9ca3af;      /* texto secundario */
+  --brand: #24CDCC;      /* turquesa VIA SEGURA */
+  --brand-700: #1fb4b3;
+  --ring: rgba(36,205,204,0.35);
+  --danger: #ef4444;
+  --radius: 16px;
+  --shadow: 0 10px 30px rgba(0,0,0,.35);
+}
+
+*{box-sizing:border-box}
+
+html,body{
+  height:100%;
+  margin:0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Ubuntu, Cantarell, "Noto Sans", "Helvetica Neue", Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  background: radial-gradient(1200px 600px at 10% 10%, rgba(36,205,204,0.08), transparent 60%),
+              radial-gradient(1000px 600px at 90% 20%, rgba(36,205,204,0.06), transparent 60%),
+              var(--bg);
+  color:var(--text);
+}
+
+.container{
+  min-height:100%;
+  display:grid;
+  place-items:center;
+  padding:24px;
+}
+
+.card{
+  width:100%;
+  max-width:380px;
+  background:linear-gradient(180deg, rgba(255,255,255,0.03), transparent 40%), var(--card);
+  border:1px solid rgba(255,255,255,0.06);
+  border-radius:var(--radius);
+  padding:28px;
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(6px);
+}
+
+h1{
+  margin:0 0 18px;
+  font-size: clamp(22px, 2.5vw, 26px);
+  letter-spacing:.5px;
+}
+
+.form{display:grid; gap:16px}
+
+.field{display:grid; gap:8px}
+
+.label-row{
+  display:flex; align-items:center; justify-content:space-between;
+  gap:12px;
+}
+
+label{font-size:14px; color:var(--muted)}
+
+input[type="text"],
+input[type="password"]{
+  width:100%;
+  padding:12px 14px;
+  border-radius:12px;
+  border:1px solid rgba(255,255,255,0.12);
+  background:#0a1124;
+  color:var(--text);
+  outline:none;
+  transition: border-color .2s, box-shadow .2s, background .2s;
+}
+
+input::placeholder{color:#6b7280}
+
+input:focus{
+  border-color: var(--brand);
+  box-shadow: 0 0 0 4px var(--ring);
+  background:#0a132a;
+}
+
+.row{display:flex; align-items:center; justify-content:space-between}
+
+.checkbox{
+  display:flex; align-items:center; gap:10px;
+  font-size:14px; color:var(--muted);
+  cursor:pointer;
+}
+
+.checkbox input{
+  width:18px; height:18px; margin:0;
+  accent-color: var(--brand);
+}
+
+.btn{
+  display:inline-block;
+  width:100%;
+  padding:12px 14px;
+  border:none;
+  border-radius:12px;
+  background:linear-gradient(180deg, var(--brand), var(--brand-700));
+  color:#041014;
+  font-weight:700;
+  letter-spacing:.4px;
+  cursor:pointer;
+  transition: transform .08s ease, filter .15s ease;
+}
+
+.btn:hover{ filter:saturate(1.1) brightness(1.02) }
+.btn:active{ transform: translateY(1px) }
+
+.hint{
+  margin:8px 0 0;
+  text-align:center; font-size:14px; color:var(--muted);
+}
+
+.link{
+  color:var(--brand);
+  text-decoration:none;
+  border-bottom:1px dashed transparent;
+  transition: border-color .15s ease, color .15s ease;
+}
+
+.link:hover{ border-color: var(--brand); color:#6ef2f1 }
+
+/* Soporte para modo claro si el SO lo usa */
+@media (prefers-color-scheme: light){
+  :root{
+    --bg: #f1f5f9;
+    --card: #ffffff;
+    --text: #0f172a;
+    --muted: #475569;
+    --shadow: 0 10px 30px rgba(2,8,23,.08);
+  }
+  input[type="text"], input[type="password"]{
+    background:#f8fafc; color:#0f172a; border-color:#e5e7eb;
+  }
+  input:focus{ box-shadow: 0 0 0 4px rgba(36,205,204,.25) }
+  .btn{ color:#00272a }
+}
 
